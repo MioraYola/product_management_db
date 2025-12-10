@@ -54,10 +54,10 @@ public class DataRetriever {
                 Product product = new Product(
                     rs.getInt("id"),
                     rs.getString("name"),
-                    rs.getTimestamp("creationDateTime"),
+                    rs.getTimestamp("creationDateTime").toInstant(),
                     new Category(
-                        rs.getInt("id"),
-                        rs.getString("name")
+                        rs.getInt("cat_id"),
+                        rs.getString("cat_name")
                     )
                 );
 
@@ -77,7 +77,7 @@ public class DataRetriever {
                         "join category c on p.category_id=c.id" +
                         "where 1=1"; 
         
-        
+
     }
 
 }
